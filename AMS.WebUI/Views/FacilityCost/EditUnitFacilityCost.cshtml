@@ -1,0 +1,59 @@
+﻿@model IEnumerable<UnitFacilityCost>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<table class="table table-sm table-striped table-bordered table-primary text-center">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">واحد</th>
+        <th scope="col">زمان استفاده</th>
+        <th scope="col">سهم</th>
+        <th scope="col">آیا متقاضی هزینه/درآمد است؟</th>
+        <th scope="col">مالک می پردازد/دریافت میکند؟</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.Any())
+    {
+        int i = 0;
+        foreach (UnitFacilityCost ufc in Model)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" id="unitFacilityCosts[@i]_Id" name="unitFacilityCosts[@i].Id" value="@ufc.Id"/>
+                    <input type="hidden" id="unitFacilityCosts[@i]_UnitId" name="unitFacilityCosts[@i].UnitId" value="@ufc.UnitId"/>
+                    <input type="hidden" id="unitFacilityCosts[@i]_FacilityCostId" name="unitFacilityCosts[@i].FacilityCostId" value="@ufc.FacilityCostId"/>
+                    <input id="unitFacilityCosts[@i]_Unit_Name" name="unitFacilityCosts[@i].Unit.Name" class="form-control" value="@ufc.Unit.Name" readonly/>
+                </td>
+                <td>
+                    <input asp-for="@ufc.UsagePeriod" name="unitFacilityCosts[@i].UsagePeriod" class="form-control"/>
+                </td>
+                <td>
+                    <input asp-for="@ufc.Share" data-val="true" data-val-range="درصد را درست وارد نمایید" data-val-range-max="100" data-val-range-min="0" data-val-required="" name="unitFacilityCosts[@i].Share" class="form-control"/>
+                </td>
+                <td>
+                    <select asp-for="@ufc.IsApplicant" class="form-control" name="unitFacilityCosts[@i].IsApplicant">
+                        <option disabled selected value="">هزینه/درآمد</option>
+                        <option value="true">بله</option>
+                        <option value="false">خیر</option>
+                    </select>
+                </td>
+                <td>
+                    <select asp-for="@ufc.OwnerPays" class="form-control" name="unitFacilityCosts[@i].OwnerPays">
+                        <option disabled selected value="">می پردازد/دریافت</option>
+                        <option value="true" selected>بله</option>
+                        <option value="false">خیر</option>
+                    </select>
+                </td>
+            </tr>
+            i++;
+        }
+    }
+    else
+    {
+        <tr>
+            <td class="text-center" colspan="7">
+                <strong>داده ای تعریف نشده است</strong>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

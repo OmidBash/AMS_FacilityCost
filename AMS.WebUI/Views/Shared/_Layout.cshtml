@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        .input-validation-error {
+            border-color: red;
+            background-color: #fee;
+        }
+    </style>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body style="background:#e6e6fa;">
+<div class="p-2">
+    <div class="navbar navbar-nav bg-purple" role="navigation">
+        <a class="navbar-brand bg-info rounded text-white m-2 p-2" asp-action="Index" asp-controller="FacilityCost">سیستم مدیریت ساختمان</a>
+    </div>
+    <div class="row m-1 p-1">
+        <div class="col">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+@RenderSection("scripts", false)
+</body>
+</html>

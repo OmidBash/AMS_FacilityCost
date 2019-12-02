@@ -1,0 +1,41 @@
+﻿@model FacilityCost
+
+<form id="addForm" class="form-row bg-success rounded m-1" asp-action="Create" method="post">
+    <div class="row p-1 text-center">
+        <div class="col form-group">
+            <label class="font-weight-bold" asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <div><span asp-validation-for="Title" class="text-danger"></span></div>
+        </div>
+        <div class="col-3 form-group">
+            <label class="font-weight-bold" asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <div class="col form-group">
+            <label class="font-weight-bold" asp-for="CalculationType"></label>
+            <select class="form-control" asp-for="CalculationType" asp-items="Html.GetEnumSelectList<CalculationType>()">
+                <option disabled selected value="">نحوه محاسبه را انتخاب نمایید</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label class="font-weight-bold" asp-for="EmptyUnitShare"></label>
+            <input class="form-control" asp-for="EmptyUnitShare" />
+            <div><span asp-validation-for="EmptyUnitShare" class="text-danger"></span></div>
+        </div>
+        <div class="col form-group">
+            <label class="font-weight-bold" asp-for="KindOfUsage"></label>
+            <select class="form-control" asp-for="KindOfUsage" asp-items="Html.GetEnumSelectList<KindOfUsage>()">
+                <option disabled selected value="">نحوه استفاده را انتخاب نمایید</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label class="font-weight-bold" asp-for="CostIncomeType"></label>
+            <select class="form-control" asp-for="CostIncomeType" asp-items="Html.GetEnumSelectList<CostIncomeType>()">
+                <option disabled selected value="">آیا در آمد است؟</option>
+            </select>
+        </div>
+        <div class="col-1 mt-4">
+            <button type="submit" class="btn btn-primary form-control">ایجاد</button>
+        </div>
+    </div>
+</form>

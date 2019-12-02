@@ -1,0 +1,11 @@
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\obj\Debug\netcoreapp2.0\AMS.WebUI.csproj.CoreCompileInputs.cache
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\obj\Debug\netcoreapp2.0\AMS.WebUI.AssemblyInfoInputs.cache
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\obj\Debug\netcoreapp2.0\AMS.WebUI.AssemblyInfo.cs
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\bin\Debug\netcoreapp2.0\AMS.WebUI.deps.json
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\bin\Debug\netcoreapp2.0\AMS.WebUI.runtimeconfig.json
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\bin\Debug\netcoreapp2.0\AMS.WebUI.runtimeconfig.dev.json
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\bin\Debug\netcoreapp2.0\AMS.WebUI.dll
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\bin\Debug\netcoreapp2.0\AMS.WebUI.pdb
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\obj\Debug\netcoreapp2.0\AMS.WebUI.dll
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\obj\Debug\netcoreapp2.0\AMS.WebUI.pdb
+C:\Users\Charli\source\repos\ApartmentManagmentSystem\AMS.WebUI\obj\Debug\netcoreapp2.0\AMS.WebUI.csprojAssemblyReference.cache

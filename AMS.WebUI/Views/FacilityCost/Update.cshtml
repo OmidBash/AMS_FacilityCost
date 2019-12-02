@@ -1,0 +1,38 @@
+﻿@model FacilityCost
+
+<h3 class="p-2 bg-primary text-white text-center rounded">@Model.Title</h3>
+<div class="container-fluid mt-3 bg-info p-2 rounded">
+    <div class="row text-center">
+        <div class="col-4 font-weight-bold"><label asp-for="Description"></label></div>
+        <div class="col font-weight-bold"><label asp-for="EmptyUnitShare"></label></div>
+        <div class="col font-weight-bold"><label asp-for="KindOfUsage"></label></div>
+        <div class="col font-weight-bold"><label asp-for="CalculationType"></label></div>
+        <div class="col font-weight-bold"><label asp-for="CostIncomeType"></label></div>
+    </div>
+    <div class="row text-center">
+        <div class="col-4 bg-success rounded font-weight-bold p-1 m-1">@Model.Description</div>
+        <div class="col bg-success rounded font-weight-bold p-1 m-1">@Model.EmptyUnitShare</div>
+        <div class="col bg-success rounded font-weight-bold p-1 m-1">@Utilities.GetEnumDisplayName(Model.KindOfUsage)</div>
+        <div class="col bg-success rounded font-weight-bold p-1 m-1">@Utilities.GetEnumDisplayName(Model.CalculationType)</div>
+        <div class="col bg-success rounded font-weight-bold p-1 m-1">@Utilities.GetEnumDisplayName(Model.CostIncomeType)</div>
+    </div>
+</div>
+<form asp-action="Update" method="post">
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <input type="hidden" name="Title" value="@Model.Title" />
+    <input type="hidden" name="Description" value="@Model.Description" />
+    <input type="hidden" name="EmptyUnitShare" value="@Model.EmptyUnitShare" />
+    <input type="hidden" name="KindOfUsage" value="@Model.KindOfUsage" />
+    <input type="hidden" name="CalculationType" value="@Model.CalculationType" />
+    <input type="hidden" name="CostIncomeType" value="@Model.CostIncomeType" />
+
+    <div class="mt-2">
+        @Html.Partial("EditUnitFacilityCost", Model.UnitFacilityCosts)
+    </div>
+
+    <div class="pt-2 text-center">
+        <button type="submit" class="btn btn-primary">ذخیره</button>
+        <a asp-controller="FacilityCost" asp-action="Index" class="btn btn-secondary">بازگشت</a>
+    </div>
+</form>

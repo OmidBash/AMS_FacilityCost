@@ -1,0 +1,66 @@
+﻿@using Microsoft.EntityFrameworkCore.Internal
+@model PagedList<FacilityCost>
+
+<h3 class="p-2 bg-primary text-white text-center rounded">امکانات و هزینه ها</h3>
+
+@Html.Partial("Create", ViewBag.CreatedFacilityCost != null ? (FacilityCost)ViewBag.CreatedFacilityCost : new FacilityCost())
+
+<div class="text-left">
+    @Html.Partial("PageOptions", Model.Options)
+</div>
+
+<table class="table table-striped table-primary table-bordered table-sm mt-2 text-center">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">عنوان</th>
+            <th scope="col">توضیحات</th>
+            <th scope="col">نحوه محاسبه</th>
+            <th scope="col">سهم واحدهای خالی</th>
+            <th scope="col">نحوه استفاده</th>
+            <th scope="col">آیا در آمد است؟</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (FacilityCost FS in Model)
+            {
+                <tr>
+                    <th scope="row">@FS.Title</th>
+                    <td>@FS.Description</td>
+                    <td>@Utilities.GetEnumDisplayName(FS.CalculationType)</td>
+                    <td>@FS.EmptyUnitShare</td>
+                    <td>@Utilities.GetEnumDisplayName(FS.KindOfUsage)</td>
+                    <td>@Utilities.GetEnumDisplayName(FS.CostIncomeType)</td>
+                    <td class="text-right">
+                        <form asp-action="Delete" method="post">
+                            <a asp-action="Update" asp-route-id="@FS.Id" class="btn btn-outline-primary">جزییات</a>
+                            <input type="hidden" name="id" value="@FS.Id" />
+                            <button type="submit" class="btn btn-outline-danger">حذف</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td class="text-center" colspan="7">
+                    <strong>داده ای تعریف نشده است</strong>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-right">
+    @Html.Partial("Pages", Model)
+</div>
+
+@section scripts
+{ 
+<script src="js/client.js"></script>
+}
+
+

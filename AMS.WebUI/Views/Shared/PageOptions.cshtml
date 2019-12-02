@@ -1,0 +1,45 @@
+﻿@model QueryOptions
+
+<div class="container-fluid m-2">
+    <div class="row m-1 p-1">
+        <div class="col-8">
+            <input form="pageform" class="form-control" asp-for="SearchTerm" value="@Model.SearchTerm" />
+        </div>
+
+        <div class="col-3">
+            <select form="pageform" asp-for="SearchPropertyName" class="form-control">
+                <option disabled selected value="">جست و جو بر اساس</option>
+                <option value="Title" selected="@(Model.SearchPropertyName == "Title")">عنوان</option>
+                <option value="Description" selected="@(Model.SearchPropertyName == "Description")">توضیحات</option>
+            </select>
+        </div>
+
+        <div class="col-1 text-right">
+            <button form="pageform" class="btn btn-secondary" type="submit">
+                جست و جو
+            </button>
+        </div>
+    </div>
+    <div class="row m-1 p-1">
+        <div class="col-8 form-check text-right">
+            <input form="pageform" asp-for="DescendingOrder" class="form-check-input"/>
+            <label asp-for="DescendingOrder" class="form-check-label"></label>
+        </div>
+
+        <div class="col-3">
+            <select form="pageform" asp-for="OrderPropertyName" class="form-control">
+                <option disabled selected value="">مرتب سازی بر اساس</option>
+                <option value="Title" selected="@(Model.OrderPropertyName == "Title")">عنوان</option>
+                <option value="KindOfUsage" selected="@(Model.OrderPropertyName == "KindOfUsage")">نحوه استفاده</option>
+                <option value="CostIncomeType" selected="@(Model.OrderPropertyName == "CostIncomeType")">درآمد/هزینه</option>
+                <option value="CalculationType" selected="@(Model.OrderPropertyName == "CalculationType")">نحوه محاسبه</option>
+            </select>
+        </div>
+
+        <div class="col-1 text-right">
+            <button form="pageform" class="btn btn-secondary" type="submit">
+                مرتب سازی
+            </button>
+        </div>
+    </div>
+</div>
